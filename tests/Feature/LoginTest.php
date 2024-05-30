@@ -6,6 +6,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class); //memory database
 
+it ('shows the login page', function(){
+    $this->get('/auth/login')
+         ->assertOk();
+});
+
 it('redirects authenticated users', function () {
 
     $user = User::factory()->create();
