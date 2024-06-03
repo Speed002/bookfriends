@@ -1,6 +1,7 @@
 <?php
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Hash;
 
 uses(RefreshDatabase::class); //memory database
 // this test is checking the form is not filled, so it can tell us, yes it is not filled
@@ -21,7 +22,7 @@ it('registers the user', function () {
     // check the database to see if the user is in the database, and then authenticate the user
     $this->assertDatabaseHas('users', [
         'name' => 'Mabel',
-        'email'=> 'mabel@codecourse.com'
+        'email'=> 'mabel@codecourse.com',
     ])->assertAuthenticated();
 
 });
